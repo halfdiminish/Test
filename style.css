@@ -1,0 +1,421 @@
+/* Basic Reset and Variables */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    /* Updated for a modern, athletic look */
+    --primary-color: #1A54A8; /* Deep Blue (for hydration) */
+    --accent-color: #4CAF50; /* Green (for health/BPA-Free) */
+    --text-color: #333;
+    --bg-color: #ffffff; /* Clean white background */
+    --light-bg: #f5f5f5;
+}
+
+/* --- ADD THIS LINE FOR SMOOTH SCROLLING --- */
+html {
+    scroll-behavior: smooth;
+}
+/* ------------------------------------------- */
+
+body {
+    /* Font style is preserved as requested */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.full-width-section {
+    width: 100%;
+    padding: 60px 0;
+    text-align: center;
+}
+.section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+/* Header */
+.main-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Softer shadow */
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    /* LOGO INTEGRATION - Make .logo a flex container (SIDE-BY-SIDE for desktop) */
+    display: flex; 
+    align-items: center; /* Vertically center the image and text */
+    gap: 10px; /* Space between the image and the text */
+}
+/* LOGO INTEGRATION - Style the new image */
+.header-logo-img {
+    height: 30px; /* Default image height */
+    width: auto;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Product Grid (Main Layout) */
+.product-page {
+    padding: 60px 15px;
+    display: flex; 
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .product-page {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr; 
+        gap: 80px;
+        text-align: left;
+    }
+}
+
+/* Product Gallery */
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.thumbnail-images {
+    display: none; /* We will use color swatches instead */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Product Details & Form Styling */
+.product-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.product-tagline {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+.price-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+.price {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.rating {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+.review-count {
+    color: #999;
+    font-size: 0.9rem;
+}
+.product-description {
+    margin-bottom: 30px;
+    color: #555;
+}
+.option-group {
+    margin-bottom: 20px;
+}
+.option-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+/* NEW: Size/Radio Group (No longer used, but styles kept) */
+.size-options input[type="radio"] {
+    display: none;
+}
+.size-options label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.2s;
+    font-weight: 400;
+}
+.size-options input[type="radio"]:checked + label {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* NEW: Color Swatches */
+.color-swatches {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; 
+}
+.swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #ccc;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 0;
+}
+.swatch.active {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+/* Purchase Buttons */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 18px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.add-to-cart-btn:hover {
+    background-color: #43A047;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+}
+.guarantee-badge {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--light-bg);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* --- NEW SECTIONS --- */
+
+/* Features Section */
+.features-section {
+    background-color: var(--light-bg);
+    border-top: 1px solid #eee;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.feature-box {
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.feature-box .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+.feature-box h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Specs Section */
+.specs-section {
+    background: white;
+}
+.specs-content {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 50px;
+}
+.specs-image {
+    flex: 1;
+}
+/* Allows the video/image to fill the container */
+.specs-image img, .specs-image video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+.specs-table-container {
+    flex: 1;
+}
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.specs-table th, .specs-table td {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+.specs-table th {
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 40%;
+}
+
+@media (max-width: 768px) {
+    .specs-content {
+        flex-direction: column;
+    }
+    .specs-image {
+        order: 2; /* Move image/video below the table on mobile */
+    }
+    .specs-table-container {
+        order: 1;
+        width: 100%;
+    }
+}
+
+/* CTA Banner */
+.cta-banner {
+    background: var(--primary-color);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+.cta-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.cta-banner p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+.cta-btn:hover {
+    background-color: #43A047;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background: white;
+}
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.review-box {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.review-stars {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.review-box p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.review-box span {
+    display: block;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.main-footer a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.main-footer a:hover {
+    color: white;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 600px) {
+    .product-title {
+        font-size: 2rem;
+    }
+    .price {
+        font-size: 2.5rem;
+    }
+    .section-heading {
+        font-size: 1.5rem;
+    }
+    .main-header .container {
+        flex-direction: column;
+        gap: 10px;
+        /* Center overall header content */
+        align-items: center; 
+    }
+    .nav-links {
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* FIX: Stack elements inside the .logo (image on top, text below) */
+    .logo {
+        flex-direction: column; /* THIS stacks the image and text vertically */
+        font-size: 1.5rem; /* Set text size for mobile */
+    }
+    
+    /* Manual Sizing and Spacing for Image on Mobile */
+    .header-logo-img {
+        height: 30px; /* Adjust this value to set the image height */
+        margin-bottom: 5px; /* Adds space between image and text */
+    }
+}
